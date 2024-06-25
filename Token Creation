@@ -15,7 +15,7 @@ contract MyToken {
     constructor() {
         name = "Syed";
         symbol = "Sy";
-        totalSupply = 1000;
+        totalSupply = 0;
     }
 
     // Creating a Function to mint new tokens
