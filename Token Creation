@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+contract MyToken {
+
+    // Public variables to store token details
+    string public name;
+    string public symbol;
+    uint public totalSupply;
+
+    // Using Mapping to keep track of each address's balance
+    mapping (address => uint) public balances;
+
+    // Creating a Constructor to initialize the token details
+    constructor() {
+        name = "Syed";
+        symbol = "Sy";
+        totalSupply = 1000;
+    }
+
+    // Creating a Function to mint new tokens
+    function mint(address recipient, uint amount) public {
+        totalSupply += amount;
+        balances[recipient] += amount;
+    }
+
+    // Creating a Function to burn tokens
+    function burn(address holder, uint amount) public {
+        require(balances[holder] >= amount, "Insufficient balance");
+        totalSupply -= amount;
+        balances[holder] -= amount;
+    }
+}
